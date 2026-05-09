@@ -1,0 +1,22 @@
+title: Z-Code Blog
+description: AI Coding、工作流、工程实践和长期项目笔记
+lang: zh-CN
+timezone: Asia/Shanghai
+url: "https://ntygod.github.io"
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default

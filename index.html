@@ -1,0 +1,63 @@
+---
+layout: default
+title: 首页
+description: AI Coding、工作流、工程实践和长期项目笔记
+---
+
+<section class="hero">
+  <div class="hero__copy">
+    <p class="eyebrow">Z-Code Blog</p>
+    <h1>AI Coding 笔记</h1>
+    <p class="lede">
+      记录我在中长期项目里如何和 Claude Code、文档、测试和 review 一起工作。
+    </p>
+
+    <div class="hero-actions">
+      <a class="button button--primary" href="#posts">阅读文章</a>
+      <a class="button button--ghost" href="{{ '/about' | relative_url }}">关于本站</a>
+    </div>
+
+    <dl class="hero-stats">
+      <div>
+        <dt>文章</dt>
+        <dd>{{ site.posts | size }}</dd>
+      </div>
+      <div>
+        <dt>最近更新</dt>
+        <dd>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y-%m-%d" }}{% else %}暂无{% endif %}</dd>
+      </div>
+    </dl>
+  </div>
+
+  <figure class="hero__media">
+    <img src="{{ '/assets/images/hero.png' | relative_url }}" alt="AI coding workflow 站点封面图">
+  </figure>
+</section>
+
+<section id="posts" class="section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Latest</p>
+      <h2>文章列表</h2>
+    </div>
+    <p class="section-note">现在先从第一篇开始，后面会继续补。</p>
+  </div>
+
+  <div class="post-grid">
+    {% for post in site.posts %}
+      <article class="post-card">
+        <a class="post-card__link" href="{{ post.url | relative_url }}">
+          <div class="post-card__meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            {% if post.tags and post.tags.size > 0 %}
+              <span>{{ post.tags | join: " · " }}</span>
+            {% endif %}
+          </div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 130 }}</p>
+          <span class="post-card__more">阅读全文</span>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>

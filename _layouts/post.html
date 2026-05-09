@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-hero">
+    <div class="post-hero__copy">
+      <p class="eyebrow">文章</p>
+      {% if page.description %}
+        <p class="lede">{{ page.description }}</p>
+      {% endif %}
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+        {% if page.tags and page.tags.size > 0 %}
+          <span>{{ page.tags | join: " · " }}</span>
+        {% endif %}
+      </div>
+    </div>
+    {% if page.hero %}
+      <figure class="post-hero__media">
+        <img src="{{ page.hero | relative_url }}" alt="{{ page.title }} 封面图">
+      </figure>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>
