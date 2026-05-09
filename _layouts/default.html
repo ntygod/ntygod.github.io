@@ -24,6 +24,60 @@
       {{ content }}
     </main>
 
+    <script defer src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+      (function () {
+        const selector = 'pre > code.language-mermaid, pre > code.language-mermaidjs, pre > code.language-mmd';
+
+        function upgradeMermaidBlocks() {
+          document.querySelectorAll(selector).forEach((code) => {
+            const pre = code.parentElement;
+            if (!pre || pre.dataset.mermaidUpgraded === 'true') {
+              return;
+            }
+
+            const block = document.createElement('div');
+            block.className = 'mermaid';
+            block.textContent = code.textContent.trim();
+            pre.dataset.mermaidUpgraded = 'true';
+            pre.replaceWith(block);
+          });
+        }
+
+        function renderMermaid() {
+          upgradeMermaidBlocks();
+
+          if (!window.mermaid) {
+            requestAnimationFrame(renderMermaid);
+            return;
+          }
+
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            theme: 'base',
+            themeVariables: {
+              fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              primaryColor: '#fffdf8',
+              primaryTextColor: '#1c2530',
+              primaryBorderColor: '#0f766e',
+              lineColor: '#5d6977',
+              secondaryColor: '#efe8db',
+              tertiaryColor: '#f6f1e8'
+            }
+          });
+
+          mermaid.run({ querySelector: '.mermaid' });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', renderMermaid);
+        } else {
+          renderMermaid();
+        }
+      })();
+    </script>
+
     <footer class="site-footer">
       <div class="site-footer__inner">
         <p>{{ site.description }}</p>

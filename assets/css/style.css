@@ -422,14 +422,33 @@ h4 {
   overflow: auto;
   padding: 18px 20px;
   border-radius: 16px;
-  background: #111827;
-  color: #e5e7eb;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 239, 229, 0.92));
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .post-body pre code {
   padding: 0;
   background: transparent;
   color: inherit;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.post-body .mermaid {
+  margin: 1.4rem 0;
+  padding: 18px 16px;
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+}
+
+.post-body .mermaid svg {
+  display: block;
+  margin: 0 auto;
 }
 
 .page-panel {

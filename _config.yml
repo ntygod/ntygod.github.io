@@ -6,6 +6,7 @@ url: "https://ntygod.github.io"
 baseurl: ""
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
+syntax_highlighter: rouge
 kramdown:
   input: GFM
   hard_wrap: false
