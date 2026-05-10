@@ -11,27 +11,28 @@ tags:
   - Workflow
 ---
 
-# 在 Claude Code 里做长期项目的一套工作流
+<section class="article-brief" aria-label="文章摘要">
+  <div>
+    <span>一句话版</span>
+    <p>这篇文章不是讲“如何让 AI 更快写代码”，而是讲“如何让 AI 在中长期项目里稳定、可交接、可验收地持续工作”。</p>
+  </div>
+  <div>
+    <span>适合谁</span>
+    <p>单人或 2-3 人紧密小团队，项目周期长，AI 参与深，且愿意先把规则、文档和验证链路搭起来。</p>
+  </div>
+  <div>
+    <span>不适合谁</span>
+    <p>一次性脚本、小工具、快速原型，或者完全不想维护项目级规则的人。</p>
+  </div>
+</section>
 
-<blockquote>
-
-<p><strong>一句话版：</strong>这篇文章不是讲“如何让 AI 更快写代码”，而是讲“如何让 AI 在中长期项目里稳定、可交接、可验收地持续工作”。</p>
-
-<p><strong>适合谁：</strong>单人或 2-3 人紧密小团队，项目周期长，AI 参与深，且愿意先把规则、文档和验证链路搭起来。</p>
-
-<p><strong>不适合谁：</strong>一次性脚本、小工具、快速原型，或者完全不想维护项目级规则的人。</p>
-
-</blockquote>
-
-<details open>
-<summary><strong>一分钟阅读地图</strong></summary>
-
-- 只有 3 分钟 → 直接跳到 [最小起步版本](#最小起步版本如果你只想先试一试)
-- 想系统了解（约 15 分钟）→ 读完[六层资产](#六层资产先看整体)和两段流程
-- 想对比自己的做法 → 跳到 [踩过的坑](#踩过的坑) 和 [已知的局限](#已知的局限这套方法论解决不了的)
-- 想查事实依据 → [参考资料](#参考资料) 全是官方文档
-
-</details>
+<nav class="reading-map" aria-label="一分钟阅读地图">
+  <strong>一分钟阅读地图</strong>
+  <a href="#最小起步版本如果你只想先试一试"><span>3 分钟</span>最小起步版本</a>
+  <a href="#六层资产先看整体"><span>15 分钟</span>六层资产和两段流程</a>
+  <a href="#踩过的坑"><span>对照排坑</span>踩过的坑与局限</a>
+  <a href="#参考资料"><span>查事实</span>官方文档和社区实践</a>
+</nav>
 
 ---
 
@@ -258,17 +259,34 @@ your-project/
 
 一个新需求进来，我一定走这 5 步，顺序不能乱：
 
-```mermaid
-flowchart LR
-    A[1. 需求调研<br/>子 Agent / brainstorm] --> B[2. 需求分析<br/>生成三件套<br/>含验收标准 / 边界 / 测试]
-    B --> C[3. 改设计文档<br/>子模块 → 整体 → README]
-    C --> D[4. 改代码<br/>按任务清单推进<br/>编码同步写测试]
-    D --> E[5. 归档 & 记录<br/>跑测试 + 变更记录<br/>+ 工作区记录 + memory]
-    E -.->|下次需求| A
-
-    style C fill:#fff3cd,stroke:#856404
-    style D fill:#d1ecf1,stroke:#0c5460
-```
+<div class="workflow-roadmap" aria-label="需求开发的五步流程">
+  <div class="workflow-step">
+    <span>1</span>
+    <strong>需求调研</strong>
+    <p>子 Agent / brainstorm</p>
+  </div>
+  <div class="workflow-step">
+    <span>2</span>
+    <strong>需求分析</strong>
+    <p>生成三件套，写清验收标准、边界和测试</p>
+  </div>
+  <div class="workflow-step workflow-step--doc">
+    <span>3</span>
+    <strong>改设计文档</strong>
+    <p>子模块 → 整体 → README</p>
+  </div>
+  <div class="workflow-step workflow-step--code">
+    <span>4</span>
+    <strong>改代码</strong>
+    <p>按任务清单推进，编码同步写测试</p>
+  </div>
+  <div class="workflow-step">
+    <span>5</span>
+    <strong>归档 &amp; 记录</strong>
+    <p>跑测试，沉淀变更记录、工作区记录和 memory</p>
+  </div>
+  <p class="workflow-loop">下次需求回到第 1 步</p>
+</div>
 
 **关键：第 3 步和第 4 步不能倒过来**。反过来（先改代码再补文档）在 AI coding 场景下几乎必然漏：AI 改完代码会本能觉得任务完成，补文档变扣分题；过一段时间代码再改，文档对不上就烂了；下次 AI 读文档得到错的前提继续改，恶性循环。
 
