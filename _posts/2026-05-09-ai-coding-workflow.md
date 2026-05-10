@@ -513,7 +513,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 ## 踩过的坑
 
-<details>
+<details markdown="1">
 <summary>坑 1：把项目设计文档和需求分析文档混在一起</summary>
 
 早期我不分类别 A 和类别 B，所有文档都扔进 `docs/`。结果看项目架构的人翻出一堆废弃的需求分析文档；想找变更记录的人淹没在架构文档里；AI 分不清哪些是事实源、哪些是过程档案。
@@ -522,7 +522,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>坑 2：需求分析文档写得像设计文档</summary>
 
 需求分析最开始越写越长，开始混入实现细节和架构描述。后来强制自己：**需求分析只管"做什么 + 什么叫做完了 + 涉及哪些模块 + 怎么测"，不管"怎么做"。**
@@ -533,7 +533,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>坑 3：Hook 拦太狠</summary>
 
 一开始事实源保护 Hook 的覆盖范围太宽，AI 连小改动都要先走需求分析。一次会话被拦好几次，很快失去耐心。
@@ -542,7 +542,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>坑 4：工作区记录一开始没做</summary>
 
 早期没有这份记录，经常出现"今天做一半，明天新开会话从头问一次进度"的情况。问到后来自己都记不清，更别说让 AI 接上。
@@ -551,7 +551,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>坑 5：CLAUDE.md 越写越大</summary>
 
 最早什么都往 CLAUDE.md 塞。超过一定长度后 AI 开始不遵守规则——官方文档明确说过"[过长会降低 adherence](https://code.claude.com/docs/en/memory)"。
@@ -565,7 +565,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>坑 6：Skill 全都自己写</summary>
 
 初期所有 Skill 都自己从零起草，超耗时间。后来发现社区已经有很多成熟资产（[superpowers](https://github.com/obra/superpowers)、[Anthropic 官方 skills 仓库](https://github.com/anthropics/skills) 等），装上用就行。
@@ -580,7 +580,7 @@ Claude Code 官方支持三种调度（[定时任务文档](https://code.claude.
 
 诚实说几条方法论本身的局限——不是执行问题，是**它自己的盲区**。
 
-<details>
+<details markdown="1">
 <summary>1. 文档和代码的“假一致”风险无法靠这套流程消除</summary>
 
 <div class="callout callout--warning">
@@ -601,7 +601,7 @@ AI 特别擅长制造这种假一致——它记得自己在文档里写了什�
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>2. 六层资产长期维护的成本是非线性的</summary>
 
 初始化成本是半天到一天，但**维护成本会随项目时间线上升**：
@@ -615,7 +615,7 @@ harness-audit agent 能部分缓解，但**它本身也需要维护和校准**�
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>3. 认知摩擦高，传播门槛陡</summary>
 
 整套方法论要求读者同时消化：六层资产、两段工作流、两类文档、三类记忆、五步顺序、Hook/Skill/Agent 的各自定位……
@@ -626,7 +626,7 @@ harness-audit agent 能部分缓解，但**它本身也需要维护和校准**�
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>4. 团队场景没有被充分考虑</summary>
 
 这套做法是基于单人或 2-3 人紧密小团队的实践总结。**超过这个规模，以下几点会出问题**：
@@ -657,7 +657,7 @@ harness-audit agent 能部分缓解，但**它本身也需要维护和校准**�
 
 诚实说几条我没想清楚的（和上一节"已知的局限"不同——那节是**可能永远解不了的**，这节是**我还在摸索但倾向找到答案的**）：
 
-<details>
+<details markdown="1">
 <summary>点开看我还在摸索的 7 个问题</summary>
 
 1. **TDD 要不要更严**：superpowers 强制 TDD（先写测试再写实现）。我目前的做法是"需求分析里写测试清单 + 编码时同步写测试"，不强制先红后绿。哪种更合适还在看。
