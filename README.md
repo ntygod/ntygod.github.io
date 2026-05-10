@@ -5,6 +5,7 @@
 ## 结构
 
 - `index.html`：首页
+- `archive.html`：文章归档
 - `about.md`：关于页
 - `_posts/`：文章
 - `_layouts/`：布局
@@ -26,3 +27,9 @@ YYYY-MM-DD-title.md
 ```
 
 然后在文件顶部写 front matter，正文直接用 Markdown。
+
+## 站点风格
+
+- 首页负责入口和最新文章。
+- `archive.html` 负责全站文章索引。
+- `about.md` 负责说明这站的写作范围和原则。

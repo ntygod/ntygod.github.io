@@ -14,6 +14,7 @@ description: AI Coding、工作流、工程实践和长期项目笔记
 
     <div class="hero-actions">
       <a class="button button--primary" href="#posts">阅读文章</a>
+      <a class="button button--ghost" href="{{ '/archive/' | relative_url }}">进入归档</a>
       <a class="button button--ghost" href="{{ '/about' | relative_url }}">关于本站</a>
     </div>
 
@@ -26,6 +27,14 @@ description: AI Coding、工作流、工程实践和长期项目笔记
         <dt>最近更新</dt>
         <dd>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y-%m-%d" }}{% else %}暂无{% endif %}</dd>
       </div>
+      <div>
+        <dt>内容范围</dt>
+        <dd>工作流 / 复盘 / 经验</dd>
+      </div>
+      <div>
+        <dt>站点节奏</dt>
+        <dd>慢更新，重整理</dd>
+      </div>
     </dl>
   </div>
 
@@ -34,13 +43,38 @@ description: AI Coding、工作流、工程实践和长期项目笔记
   </figure>
 </section>
 
+<section class="section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Focus</p>
+      <h2>这个站会写什么</h2>
+    </div>
+    <p class="section-note">不是碎碎念，尽量都写成能复用的东西。</p>
+  </div>
+
+  <div class="focus-grid">
+    <div class="focus-block">
+      <h3>长期项目工作流</h3>
+      <p>如何让 AI 写代码、改文档、跑测试和交接更稳定。</p>
+    </div>
+    <div class="focus-block">
+      <h3>工程实践与方法论</h3>
+      <p>规则、记忆、验证链路和项目协作方式的整理。</p>
+    </div>
+    <div class="focus-block">
+      <h3>踩坑与复盘</h3>
+      <p>保留真正踩过的坑，也保留后来修正过的做法。</p>
+    </div>
+  </div>
+</section>
+
 <section id="posts" class="section">
   <div class="section-heading">
     <div>
       <p class="eyebrow">Latest</p>
-      <h2>文章列表</h2>
+      <h2>最新文章</h2>
     </div>
-    <p class="section-note">现在先从第一篇开始，后面会继续补。</p>
+    <a class="section-link" href="{{ '/archive/' | relative_url }}">查看完整归档</a>
   </div>
 
   <div class="post-grid">

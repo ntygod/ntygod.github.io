@@ -20,8 +20,9 @@
       <div class="site-header__inner">
         <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
         <nav class="site-nav" aria-label="主导航">
-          <a href="{{ '/' | relative_url }}">首页</a>
-          <a href="{{ '/about' | relative_url }}">关于</a>
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>首页</a>
+          <a href="{{ '/archive/' | relative_url }}"{% if page.url contains '/archive' %} aria-current="page"{% endif %}>归档</a>
+          <a href="{{ '/about' | relative_url }}"{% if page.url contains '/about' %} aria-current="page"{% endif %}>关于</a>
         </nav>
       </div>
     </header>
@@ -32,8 +33,15 @@
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <p>{{ site.description }}</p>
-        <p>Built for GitHub Pages.</p>
+        <div>
+          <p class="site-footer__brand">{{ site.title }}</p>
+          <p>{{ site.description }}</p>
+        </div>
+        <nav class="site-footer__links" aria-label="页脚导航">
+          <a href="{{ '/' | relative_url }}">首页</a>
+          <a href="{{ '/archive/' | relative_url }}">归档</a>
+          <a href="{{ '/about' | relative_url }}">关于</a>
+        </nav>
       </div>
     </footer>
 

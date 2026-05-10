@@ -1,0 +1,52 @@
+---
+layout: default
+title: 归档
+description: 按时间整理的全站文章索引。
+permalink: /archive/
+---
+
+<section class="hero archive-hero">
+  <div class="hero__copy">
+    <p class="eyebrow">Archive</p>
+    <h1>文章归档</h1>
+    <p class="lede">
+      这里按时间列出全部文章。站点后续会持续往这里补工作流、复盘和经验整理。
+    </p>
+
+    <div class="hero-actions">
+      <a class="button button--primary" href="{{ '/' | relative_url }}">回到首页</a>
+      <a class="button button--ghost" href="{{ '/about' | relative_url }}">了解本站</a>
+    </div>
+
+    <dl class="hero-stats">
+      <div>
+        <dt>文章</dt>
+        <dd>{{ site.posts | size }}</dd>
+      </div>
+      <div>
+        <dt>最近更新</dt>
+        <dd>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y-%m-%d" }}{% else %}暂无{% endif %}</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="archive-list">
+    {% for post in site.posts %}
+      <article class="archive-item">
+        <div class="archive-item__meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          {% if post.tags and post.tags.size > 0 %}
+            <span>{{ post.tags | join: " · " }}</span>
+          {% endif %}
+        </div>
+        <div class="archive-item__body">
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 160 }}</p>
+        </div>
+        <a class="archive-item__link" href="{{ post.url | relative_url }}">阅读全文</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
